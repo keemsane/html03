@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery 함수 활용</title>
+    <style>
+        h1 {
+            cursor: pointer;
+            border: 1px solid gray;
+        }
+        h1:hover {
+            color: skyblue;
+            background-color: lightyellow;
+        }
+        h1:active {
+            color: red;
+            font-weight: bold;
+        }
+
+        h1 + article, h1 + p {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>열기&닫기</h1>
+        <article>
+            <h1>제목1</h1>
+            <p>내용1</p>
+        </article>
+
+        <h1>열기&닫기</h1>
+        <article>
+            <h1>제목2</h1>
+            <p>내용2</p>
+        </article>
+
+        <h1>열기&닫기</h1>
+        <article>
+            <h1>제목3</h1>
+            <p>내용3</p>
+        </article>
+    </div>
+    <script src="jquery-3.6.0.js"></script>
+    <script>
+        //jQuery 효과 함수
+        //  show()        hide()        toggle()
+        //  slideDown()   slideUp()     slideToggle()
+        //  fadeIn()      fadeOut()     fadeToggle()
+        
+        // h1 클릭 이벤트
+        $('h1').on('click', function() {
+            $(this).next().toggle(500, function () {
+                alert('효과 끝');
+            });
+        });
+    </script>
+</body>
+</html>

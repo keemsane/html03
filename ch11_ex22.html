@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>onclick, onkeyup 함수로 제어하기</title>
+</head>
+<body>
+    <form action="a.jsp" method="post" name="frm">
+        아이디 : <input type="text" name="id" value=""><br>
+        비밀번호 : <input type="password" name="passwd"><br>
+        주민번호 : <input type="text" name="jumin1" onkeyup="ju1()"> - 
+        <input type="text" name="jumin2" onkeyup="ju2()"><br>
+        자기소개 : <textarea name="txt" cols="10" rows="3"></textarea><br>
+        <input type="button" value="버튼" onclick="func1()">
+        <input type="button" value="전송" onclick="checkForm()">
+
+    </form>
+
+    <script>
+        function func1 () {
+            // alert(document.frm.id.type);
+            // alert(document.frm.id.name);
+            // alert(document.frm.id.value);
+            // document.frm.id.focus(); //포커스 주기, 같은 문서 내에 있으면 document 생략가능
+            // frm.id.blur(); // 포커스 해제하기
+            frm.id.select(); // value값 선택하기(드래그 선택효과)
+        }
+        function ju1 () {
+            // jumin1의 value 값 길이가 6자리면 포커스를 jumin2로 이동
+            if (frm.jumin1.value.length == 6) {
+                frm.jumin2.focus();
+            }
+        }
+
+        function ju2 () {
+            // jumin2의 value 값 길이가 7자리면 포커스를 자기소개란(txt)으로 이동
+            if (frm.jumin2.value.length == 7) {
+                frm.txt.focus();
+                return;
+            }
+        }
+        function checkForm () {
+            // 아이디 입력값 없으면 '아이디를 입력하세요' 알림창 띄운 후 아이디 칸에 포커스 주기
+            
+            if (frm.id.value.length == 0) { // frm.id.value == '' <- 문자열의 기본 값인 빈 문자열로 확인하는 것.
+            // frm.id.value.length < 1
+            // 문자열의 length는 글자 갯수임.
+                alert('아이디를 입력하세요.');
+                frm.id.focus();
+                return;
+            }
+            let id = frm.id;
+            if (!(id.value.length >= 4 && id.value.length <= 10)) {
+                alert('아이디 글자 수는 4~10자 사이만 가능합니다.');
+                id.focus();
+                return;
+            }
+            if (frm.passwd.value.length == 0) {
+                alert('비밀번호를 입력하세요.');
+            
+            // } else if (frm.id.value.length < 4) {
+            //     alert('아이디는 4~10자 사이만 가능합니다.');
+            //     frm.id.focus();
+            //     return;
+            // } else if (frm.id.value.length > 10) {
+            //     alert('아이디는 4~10자 사이만 가능합니다.');
+            //     frm.id.focus();
+            //     return;
+            // } else if (frm.passwd.value.length == 0) {
+            //     alert('비밀번호를 입력하세요.');
+            //     frm.passwd.focus();
+            //     return;
+            }
+
+            frm.submit(); // 폼 전송하기
+
+        }
+    </script>
+</body>
+</html>

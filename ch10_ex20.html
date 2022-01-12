@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>event 맛보기</title>
+
+    <script>
+
+        // 이벤트 
+        // 사용자가 발생시키는 이벤트, 시스템 상태에 따라 자동으로 발생하는 것.
+        // 이벤트 종류
+        // 클릭하기 click
+        // 더블클릭하기 dblclick
+        // 커서로 누르기 mousedown
+        // 버튼에서 떼기 mouseup
+        // 위에 가져가기 mouseover
+        // 벗어나기 mouseout
+        // 
+    </script>
+</head>
+<body onload="onBodyLoaded()">
+    <input type="button" value="버튼1" onclick="alert('메시지1'); alert('메시지2');">
+    <input type="button" value="버튼2" ondblclick="onButton2DblClicked()">
+    <input type="button" value="버튼3" onmouseover="onButton3MouseOver()">
+    <input type="button" value="버튼4" id="btn4">
+    <br>
+    <input type="text" name="id" value="" onfocus="onTextIdFocused()"><br>
+    <input type="password" name="passwd" id="passwd" onkeyup="onPasswdKeyUp()">
+
+    <script>
+
+        function onButton2DblClicked() {
+            alert('버튼2 더블클릭됨');
+        }
+
+        function onButton3MouseOver() {
+            alert('버튼3 마우스 오버됨');
+        }
+
+        function onTextIdFocused() {
+            alert('포커스 발생함');
+            document.getElementById('passwd').focus(); // 포커스 주기
+        }
+        function onPasswdKeyUp() {
+            alert('키가 눌렀다가 떼짐');
+        }
+        function onBodyLoaded() {
+            alert('문서 불러오기 완료됨')
+        }
+        let btn4 = document.getElementById('btn4');
+        btn4.addEventListener('click', function () {
+            alert('버튼4 클릭됨');
+        });
+
+
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        // 함수 : 자주 쓰는 기능을 정의
+        //        필요할 때 함수의 이름을 호출해서 사용함.
+
+        // 함수 선언
+        // 1. 매개변수도 없고 반환값도 없는 함수
+
+        // 브라우저는 함수 선언을 가장 먼저 로딩한 후(호이스팅, hoisting)에 실행문을 순차적으로 실행함.
+        function showStars() {
+            document.write('★★★★★★★<br>');
+            // if (1) {
+            //     return; // return은 해당 함수를 끝내는 것
+            // } // 주로 if 문을 이용해 조건에 따라 return을 하거나 안하도록 할 수 있음
+            document.write('★★Hello★★<br>');
+            document.write('★★★★★★★<br>');
+        }
+
+        // 2. 매개변수는 있고 반환값은 없는 함수
+        function greeting(name) {
+            document.write(name + ' 안녕!<br>');
+        }
+
+        //  숫자 반환(return)
+        // 3. 매개변수는 없고 반환값은 있는 함수
+        function getNum() {
+            let result = 1 + 2;
+            return result * 10;
+        }
+        // 4. 매개변수도 있고 반환값도 있는 함수
+
+        function getSum (a, b, c, d) {
+            // let result = a + b;
+            // return result;
+            return a + b;
+        }
+
+
+
+
+
+        // 함수 호출문
+        showStars();
+
+        document.write('<p>===============================</p>')
+
+        showStars();
+        document.write('<p>===============================</p>')
+
+        greeting('길동아')
+        greeting('문수야')
+        document.write('<p>===============================</p>')
+
+        let num = getNum();
+        document.write('num = ' + num + '<br>');
+        document.write('<p>===============================</p>')
+
+        document.write('두 수의 합은 ' + getSum(35437,541) + ' 입니다.<br/>')
+
+        document.write('<p>===============================</p>')
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

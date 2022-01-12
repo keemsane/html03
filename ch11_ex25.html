@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>통합실습해보기</title>
+</head>
+<body>
+    <div class="container">
+        <h1>회원가입</h1>
+        <hr>
+        <form action="a.jsp" method="get" name="frm">
+            아이디 : <input type="text" name="id"><br>
+            비밀번호 : <input type="password" name="passwd"> <br>
+            이름 : <input type="text" name="name"><br>
+            성별 : <input type="radio" name="gender" value="남">남자
+                   <input type="radio" name="gender" value="여">여자<br>
+            직업 : 
+            <select name="job" id="rrr">
+                <option value="">직업을 선택하세요</option>
+                <option value="학생">학생</option>
+                <option value="회사원">회사원</option>
+                <option value="기타">기타</option>
+            </select>
+            <br>
+            취미 : <input type="checkbox" name="hobby" value="독서">독서
+            <input type="checkbox" name="hobby" value="게임">게임
+            <input type="checkbox" name="hobby" value="축구">축구
+            <br>
+            자기소개 : <textarea name="txt" id="" cols="50" rows="10"></textarea>
+            <br>
+            <input type="button" value="회원가입" onclick="checkForm()">
+            
+
+        </form>
+    </div>
+    <script>
+        function checkForm() {
+            // 글상자에 입력값이 없거나, 선택항목이 없는 경우
+            // '~~을 입력하세요.' 경고문 띄운 후 포커스 주기
+            // 리턴
+            if (frm.id.value.length == 0) {
+                alert('아이디를 입력하세요.');
+                frm.id.focus();
+                return;
+            };
+            if (!(frm.id.value.length >= 4 && frm.id.value.length < 10)) {
+                alert('아이디는 4~10자 사이여야 합니다.');
+                frm.id.focus();
+                return;
+            };
+            if (frm.passwd.value.length == 0) {
+                alert('비밀번호를 입력하세요.');
+                frm.passwd.focus();
+                return;
+            }
+            if (frm.name.value.length == 0) {
+                alert('이름을 입력하세요.');
+                frm.name.focus();
+                return;
+            }
+            if (frm.gender[0].checked == false
+            && frm.gender[1].checked == false) {
+                alert('성별을 선택해주세요.');
+                frm.gender[0].focus();
+                return;
+            }
+            if (frm.job.selectedIndex == 0) {
+                alert('직업을 선택해주세요.');
+                frm.job.focus();
+                return;
+            }
+            if (frm.hobby[0].checked == false 
+            && frm.hobby[1].checked == false 
+            && frm.hobby[2].checked == false) {
+                alert('취미를 하나 이상 선택해주세요');
+                frm.hobby[0].focus();
+                return;
+            }
+            if (frm.txt.value.length == 0) {
+                alert('자기소개를 반드시 해주세요.');
+                frm.txt.focus();
+                return;
+            }
+
+            frm.submit();
+
+        }
+    </script>
+</body>
+</html>

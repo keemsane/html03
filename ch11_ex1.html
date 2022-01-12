@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>timeout 연습</title>
+</head>
+<body>
+    <div class="number"></div>
+    <input type="button" value="버튼">
+
+    <script>
+        let num = 0;
+        let divNumber = document.querySelector('div.number');
+        divNumber.innerHTML = num;
+
+        //기본적으로는 일정 밀리초 이후에 동작을 한 번만 수행함
+        
+        let flag = setTimeout(function () {
+            num++;
+            divNumber.innerHTML = num;
+        } , 1000);
+
+        console.log('flag : ' + flag);
+
+        let btn = document.querySelector('input[type="button"]');
+        btn.addEventListener('click', function () {
+            clearTimeout(flag); // 해당 타임아웃 작업 중지
+        });
+    </script>
+</body>
+</html>

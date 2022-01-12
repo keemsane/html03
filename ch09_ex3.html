@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        // 산술 연산자
+        let a = 7, b = 5;
+
+        document.write('a + b = ' + (a+b) + '<br/>');
+        document.write('a - b = ' + (a-b) + '<br/>');
+        document.write('a x b = ' + (a*b) + '<br/>');
+        document.write('a ÷ b = ' + (a/b) + '<br/>');
+        document.write('a ÷ b 의 나머지 = ' + (a%b) + '<br/>');
+        
+        document.write('=====================================<br/>');
+
+        a = b = 10;
+        // ++ 증가연산자 -- 감소연산자 합쳐서 증감연산자
+        // 현재 숫자 값에만 적용함. 문자열에는 적용 안됨.
+        ++a; // 1증가 a = 11
+        a++; // 1증가 a = 12
+        document.write('a 값은 ' + a + '<br/>'); // a = 12
+        --b; // 1감소 b = 9
+        b--; // 1감소 b = 8
+        document.write('b 값은 ' + b + '<br/>'); // b = 8
+        
+        document.write('=====================================<br/>');
+
+        // 증감연산자는 연산자 우선순위가 매우 높음.
+        // 한 실행문 안에서 여러 개의 연산 또는 기능이 있을 때는 증감연산자 위치에 따라 결과가 달라짐
+
+        a = b = 10;
+
+        document.write('a 값은 ' + a++ + '<br/>');
+        // a++(후위 연산자)에서는 변수가 먼저 document.write(출력)된 후에 ++가 실행됨.
+        // 요즘에는 후위 연산자 자체를 자제하는 중이지만 다른 사람이 후위 연산자를 보고 해석할 줄 알아야 함.
+        // 위 문장은 아래와 같은 것임.
+        document.write('a 값은 ' + a + '<br/>');
+        a++;
+        // document.write 후에 a를 증가시킴
+        document.write('b 값은 ' + ++b + '<br/>');
+        // ++a(전위 연산자)에서는 ++가 먼저 실행되고 변수가 바뀐채로 document.write(출력)이 됨.
+        document.write('b 값은 ' + b + '<br/>');
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

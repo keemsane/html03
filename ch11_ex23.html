@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>radio, checkbox 제어하기</title>
+</head>
+<body>
+    <form action="a.jsp" method="post" name="frm">
+        성별 : <input type="radio" name="gender" value="남" > 남자
+        <input type="radio" name="gender" value="여"> 여자 <br>
+        취미 : <input type="checkbox" name="hobby" value="게임"> 게임
+        <input type="checkbox" name="hobby" value="야구"> 야구
+        <input type="checkbox" name="hobby" value="여행"> 여행
+        <input type="checkbox" name="hobby" value="독서"> 독서
+        <input type="checkbox" name="hobby" value="쇼핑"> 쇼핑
+        <br>
+        <input type="button" value="전송" onclick="checkForm()">
+    </form>
+    <script>
+        // 성별이 체크 안되어 있으면 '성별을 선택하세요' 포커스 주기
+        function checkForm() {
+            if (frm.gender[0].checked == false && frm.gender[1].checked == false) {
+            alert('성별을 선택하세요');
+            frm.gender[0].focus();
+            return;
+
+        }
+        // 취미에 체크 안되어 있으면 '취미를 한 개 이상 선택하세요' 포커스 주기
+        
+        if (frm.hobby[0].checked == false && frm.hobby[1].checked == false && frm.hobby[2].checked == false && frm.hobby[3].checked == false && frm.hobby[4].checked == false) {
+            alert('취미를 한 개 이상 선택하세요.');
+            frm.hobby[0].focus();
+            return;
+
+        }
+        } // checkForm
+                
+
+    </script>
+</body>
+</html>

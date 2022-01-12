@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>map, filter</title>
+
+    <script>
+
+        let numArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        //매핑하다. 각 배열요소를 특정 연산 결과로 매핑한 새로운 배열을 리턴.
+        document.write('numArr는 : ' + numArr + '<br/>');
+        let = mapArr = numArr.map(function (val) { // 인덱스 순서대로 가져와서 계산!
+            return val * val;
+        });
+
+        document.write('mapArr는 : ' + mapArr + '<br/>');
+
+        document.write('================================<p/>')
+
+        let dataArr = [21, 42, 33, 14, 25, 12, 37, 28, 16, 11];
+
+        let filteredArr = dataArr.filter(function (item, index) {
+            // true/false 를 리턴하는 함수 정의를 인자로 전달해야함.
+            // return false;
+            // 모든 값 출력하지 않기
+            // return true;
+            // 모든 값 출력하기
+            if (item >= 18) {
+                return true;
+            }
+            else {
+                return false;
+            }
+            
+
+        });
+
+        document.write('filteredArr는 : ' + filteredArr + '<br/>');
+
+        document.write('==================================<p/>')
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <script>
+        // // 반복문의 중첩 (중첩 반복문)
+
+        // // ★ 를 5번 출력
+
+        // document.write('★');
+        // document.write('★');
+        // document.write('★');
+        // document.write('★');
+        // document.write('★');
+
+        // document.write('<p>======================</p>');
+
+        // // 일반적으로 출력문을 다섯번 입력
+
+        // for (let i = 1; i <= 5; i++) {
+        //     document.write('★');
+        // }
+        // document.write('<br/>');
+        // document.write('<p>======================</p>');
+
+
+        // // 평범한 for 반복문으로 다섯번 출력
+
+        // // ★★★★★ 를 세 줄 출력하는 방법
+
+        // for (let j = 1; j <= 3; j++) {
+        //     for (let i = 1; i <= 5; i++) {
+        //     document.write('★');
+        // }
+        // document.write('<br/>');
+
+        // }
+        // document.write('<p>======================</p>');
+        // // 주로 표 형식의 자료를 화면에 띄우거나 불러올 때 for 중첩문을 사용한다.
+
+        // for (let i = 1; i <= 3; i++) { //여기서 i 값이 가로줄의 갯수(행의 갯수)
+        //     for (let j = 1; j <= 5; j++) { // 여기서 j의 값이 세로줄의 갯수(열의 갯수)
+        //         document.write('i는 ' + i);
+        //         document.write(', j는 ' + j + '<br/>');
+        //     }
+        //     document.write('<p>=======================</p>')
+        // }
+        // document.write('<p>=======================</p>')
+
+        // // ★
+        // // ★★
+        // // ★★★
+        // // ★★★★
+        // // ★★★★★
+        // // 위와 같이 출력해보기
+
+        // // Hint : 1행은 1열만큼, 2행은 2열만큼 ★이 출력된다.
+        // // 즉, 열의 끝값을 행의 변수(바깥쪽 제어변수)로 넣어주면 됨.
+
+        // for (let i = 1; i <= 5; i++) {
+        //     for (let j = 1; j <= i; j++) {
+        //         document.write('★');
+        //     }
+        //     document.write('<br>')
+        // }
+        // document.write('<p>=======================</p>')
+
+        //     ★
+        //    ★★
+        //   ★★★
+        //  ★★★★
+        // ★★★★★
+        // 위와 같이 출력해보기
+        // Hint : 공백을 먼저 출력하고 ★을 출력
+
+        for (let i = 1; i <= 5; i++) {
+            for (let j = 5; j >= i; j--) { // 공백문자 출력
+                document.write('　');
+
+            }
+            for (let k = 1; k <= i; k++) { // ★문자 출력
+                document.write('★');
+            }
+            document.write('<br>')
+        }
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

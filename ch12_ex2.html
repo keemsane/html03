@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery2</title>
+</head>
+<body>
+    <div class="container">
+        <input type="button" value="버튼"><br>
+        <section>
+
+        </section>
+
+    </div>
+    <script src="jquery-3.6.0.js"></script>
+    <script>
+        function processData(evemt) {
+        // 배열
+        let arr = [{ name: '네이버', link: 'http://naver.com'},
+        { name: '다음', link: 'http://daum.net'},
+        { name: '네이트', link: 'http://nate.com'},
+        { name: 'jQuery', link: 'http://jquery.com'}];
+
+        // for (let item of arr) {
+
+        // }
+
+        let str = '';
+        arr.forEach(function (item, index) {
+            str += '<p><a href="' + item.link + '">' + item.name + '</a></p>';
+        });
+
+        document.querySelector('section').innerHTML = str;
+        }//processData
+
+        let btn = document.querySelector('input[type="button"]');
+        btn.addEventListener('click', function (event) {
+            processData(event);
+        });
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>익명함수</title>
+    <script>
+        function funcA() {
+            document.write('funcA() 호출됨<br/>');
+        }
+
+        funcA(); // 함수 호출
+
+        document.write('=============================<p/>')
+
+        let b = 5;
+        b = '문자열';
+
+        // 자바 스크립트는 변수에 함수 정의를 저장할 수 있음.
+        b = funcA;
+        b();
+
+        document.write('=================================<p/>');
+
+        // 익명 함수 정의를 변수에 저장
+        // 변수가 곧 함수 이름이 되기 때문에 이름을 줄 필요가 없음
+        // 함수만 선언한 것이 아니라 대입연산자를 활용한 실행문임.
+        // 따라서 함수를 먼저 스캔하는 hoisting(호이스팅)의 대상이 아님.
+        b = function () {
+            document.write('b 호출됨<br/>');
+        };
+
+        b(); // 익명함수를 변수 b로 호출함
+
+        document.write('==================================<p/>');
+
+        // 변수에 함수를 넣을 수 있으니, 매개변수에도 함수를 넣어보기.
+        function myFunction2(func) {
+
+            if (true)  {
+                func();
+            }
+
+        }//myFunction2
+
+        myFunction2(funcA); // 함수 호출문
+        myFunction2(b);
+        
+        //함수 정의를 인자값으로 바로 전달함
+        myFunction2(function () {
+            document.write('익명함수 호출됨<br/>');
+        }); // 익명함수의 본체를 바로 호출할 수 있음. 아주아주 중요!!
+        // 이게 바로 call-back 함수
+
+        document.write('======================================<p/>')
+
+        let ndata = [132, 2, 41, 123, 45, 1234, 6, 29, 4567];
+        let sortedArr = ndata.sort(function (a, b) { // sort는 자동으로 두 수를 가져와서 정렬. 더블 소트.
+            // 두 수를 가져와서 빼서 참인 것을 기준으로 정렬
+        //    return a - b; //오름차순 정렬
+           return b - a; //내림차순 정렬
+        });
+
+        document.write('sortedArr = ' + sortedArr + '<br/>');
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

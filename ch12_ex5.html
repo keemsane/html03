@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery의 각종 함수</title>
+    <style>
+        article {
+            border: 1px solid gray;
+            border-radius: 10px;
+            box-shadow: 0 0 10px 10px gray;
+            margin: 20px;
+            padding: 10px;    
+            width: 500px;   
+            overflow: auto;
+            transition: all 0.5s;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <section>
+            <article>
+                <h1>제목1</h1>
+                <p>내용1</p>
+                <button type="button" class="change">내용변경</button>
+                <button type="button" class="close">닫기</button>
+                <!-- 버튼 태그의 기본 타입은 submit이기 때문에 submit을 쓰지 않으려면 type을 버튼으로 바꿔줘야한다. -->
+            </article>            
+            <article>
+                <h1>제목2</h1>
+                <p>내용2</p>
+                <button type="button" class="change">내용변경</button>
+                <button type="button" class="close">닫기</button>
+            </article>            
+            <article>
+                <h1>제목3</h1>
+                <p>내용3</p>
+                <button type="button" class="change">내용변경</button>
+                <button type="button" class="close">닫기</button>
+            </article>
+        </section>
+    </div>
+    <script src="jquery-3.6.0.js"></script>
+    <script>
+        // jQuery 요소 탐색 함수
+        // closest('선택자') : 가장 가까운 상위 요소 찾기 
+        // find('선택자') : 가장 가까운 하위 요소 찾기
+        // prev() : 형제 관계에서 이전 요소 찾기
+        // next() : 형제 관계에서 다음 요소 찾기
+            
+        $('button.close').on('click', function (event) {
+            // event.target;
+            $(this). closest ('article').css({
+                transform: 'translate(50px,0)',
+                opacity: 0,
+            });
+            
+            // 화면효과 닫기 함수
+            // hide() : 지정된 시간동안 좌상단으로 사라짐
+            // slideUp() : 지정된 시간동안 상단으로 사라짐
+            // fadeOut() : 지정된 시간동안 흐려지면서 사라짐
+            // display: none; 스타일로 안보이게 함
+            // 트리구조 안에는 들어있음.
+            // remove는 해당 요소를 DOM모델에서 아예 삭제시켜버림
+    
+            // $(this).closest('article').fadeOut(1000);
+
+            // $(this).closest('article').remove(); 
+            
+            // empty(); 
+            // remove는 상위요소까지 삭제. 
+            // empty는 상위요소가 품은 내용만 삭제
+            
+            // $(this).closest('article').remove();
+            
+            // hide에 값을 안 주면 remove와 같음.
+            // 값은 밀리초 기준으로 넣어주면 됨.
+        });    
+
+        // 트랜지션 완료 감지 이벤트
+        // one 메소드는 한 번만 실행되도록 하는 메소드
+        $('article').one('transitionend', function () {
+            // alert('트랜지션 완료');
+            $(this).remove();
+        });
+
+        $('button.change').on('click', function () {
+            // $(this).prev().append('★')
+            $(this).closest('article').find('p').append('★');
+
+        });
+    </script>
+</body>
+</html>

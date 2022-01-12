@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>자바스크립트 객체</title>
+</head>
+<body>
+    <form id="frm1" action="a.jsp" method="post" name="frm">
+        <input type="text" name="id" value="user1"><br>
+        <input type="button" value="폼정보" onclick="func1()">
+        <input type="button" value="폼정보 변경" id="btn2" ><br>
+        <input type="submit" value="전송">
+        <input type="reset" value="초기화"><br>
+    </form>
+
+    <form id="frm2" action="">
+
+    </form>
+
+    <script>
+        // 브라우저             - 문서     - 여러 폼 태그 -
+        // window (브라우저 창) - document - forms   
+
+        // document.forms[0].속성  action method
+        // document.forms[0].메소드 submit() reset()
+
+        // id 속성으로 요소 참조
+        // let frm1 = document.getElementById('frm1');
+        // frm1.reset();
+
+        // name 속성 기준으로 .찍고 포함관계로 요소 검색
+        // name 속성은 서버에서 확인하는 용도지만 form 태그에 name 속성을 넣어서 활용할 수 있다.
+        // document.frm.id.value='유저1';
+
+        function func1() {
+            alert(document.forms[0].action);
+            alert(document.frm.method);          
+        }
+        //querySelector는 CSS 선택자 문법을 그대로 따름.
+        let btn2 = document.querySelector('input[type="button"]#btn2');
+        btn2.addEventListener('click', function() {
+            // alert('클릭됨');
+            // action a.jap => b.jsp 로 바꾸기
+            document.forms[0].action = 'b.jsp';
+            // method post => get 으로 바꾸기
+            document.frm.method = 'get';
+            // submit() 메소드 호출
+            let frm1 = document.getElementById('frm1');
+            frm1.submit();
+        });
+
+    </script>
+</body>
+</html>

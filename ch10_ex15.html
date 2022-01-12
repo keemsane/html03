@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        function getArrSum(arr) {
+            // instanceof 로 배열이 맞는지 확인하면 더 정확한 결과값을 얻을 수 있음.
+            if (!(arr instanceof Array)) {
+                document.write('getArrSum 함수의 인자값이 배열이 아닙니다.</br>');
+                return;
+            }
+            let sum = 0;
+            // for (let i = 0; i < arr.length; i++) {
+            //     sum += arr[i]; // sum = sum + arr[i]
+            
+            //for-each문으로 해보기
+            for (let num of arr) {
+                sum += num;
+            
+            }
+            return sum;
+        }//getArrSum
+
+        function myFunction() {
+
+            {
+                // let은 코드블럭 기준
+                // var는 함수블럭 기준
+                // 주류 언어들은 코드블럭 기준임
+                let a = 10;
+                var b = 20;
+                document.write('블록 안 a = ' + a + '<br>');
+                document.write('블록 안 b = ' + b + '<br>');
+            }
+            
+            // document.write('블록 밖 a = ' + a + '<br>');
+            document.write('블록 밖 b = ' + b + '<br>');
+
+        }//myFunction
+
+        myFunction();
+        let numArr = [10, 20, 30, 40, 50];
+        document.write('numArr 배열 요소의 합은 : ' + getArrSum(numArr) + '<br/>')
+
+        document.write('============================<p/>')
+        //인자값이 배열이 아닐 경우
+        getArrSum('문자열')
+
+        document.write('========================================<p>')
+
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

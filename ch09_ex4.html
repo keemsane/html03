@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        let a = 7, b = 5;
+        // 비교 연산자
+        // 왼쪽을 기준으로 왼쪽이 오른쪽보다 크면 >, 왼쪽이 오른쪽보다 크거나 같으면 >=. 왼쪽이 오른쪽보다 작으면 <. 왼쪽이 오른쪽보다 작거나 같으면 <=. 왼쪽과 오른쪽이 같으면 ==( = 하나만 쓰면 대입연산자임), 왼쪽과 오른쪽이 다르면 !=
+        // 연산의 결과값은 참이면 true, 거짓이면 false 가 나옴.
+
+        document.write('a != b : ' + (a != b) + '<br/>');
+
+        document.write("(5 == '5') : " + (5 == '5') + '<br/>');
+        document.write("(5 === '5') : " + (5 === '5') + '<br/>');
+
+        document.write("(5 != '5') : " + (5 != '5') + '<br/>');
+        document.write("(5 !== '5') : " + (5 !== '5') + '<br/>');
+
+        // 논리 연산자 
+        // : true false 논리값을 대상으로 연산 수행.
+
+        // && 그리고 ~이면서 and
+        // || 또는 ~이거나 or
+        // ! 논리부정 ~ (not) 아니다
+        // a = 7, b = 5
+        document.write('!(a > b :) ' + !(a != b) + '<br/>');
+        
+        // 로그인을 하는 상황일 때, id 와 pw 둘 다 맞아야 함.
+        // and 연산자로 확인해보자.
+        // && 논리 연산자는 연산의 대상이 되는 논리값이 둘 다 참일 때만 결과가 참이 됨. 하나만 거짓이어도 결과는 거짓임.
+        
+        let id = 'user';
+        let pw = '1234';
+        let loginSuccess = (id == 'user') && (pw == '1234');
+        document.write('loginSuccess : ' + loginSuccess + '</br>');
+
+        // || 논리 연산자는 연산의 대상이 되는 논리값이 둘 다 거짓일 때만 결과가 거짓이 됨. 하나만 참이어도 결과는 참.
+
+        let level = '과장';
+
+        let enter = (level == '대리') || (level == '과장') || (level == '팀장')
+        document.write('enter : ' + enter + '</br>');
+
+        // 각각의 비교 연산자는 논리 연산자보다 늘 먼저 계산되므로 괄호로 묶지 않아도 된다.
+        // 비교 연산자 순서대로 참 거짓을 판단하므로 && 연산자에서는 앞의 비교 연산이 거짓이라면 뒤의 연산은 실행 되지 않고, || 연산자에서는 앞의 비교 연산이 참이라면 뒤의 연산은 실행되지 않는다.
+
+        // 조건 연산자 (삼항 연산자)
+        a = 5,
+        b = 7;
+        let max = (a > b) ? a : b ;
+        document.write(('max : ') + max + '<br/>')
+
+        // 복합(확장)대입연산자
+        a = 10;
+        a++ ; // a = a + 1 과 같은 것임. a(10)에 1을 더해서 다시 a(11)에 대입
+        document.write('a 값은 : ' + a + '<br/>');
+
+        a = a + 1; // a += 1 과 같은 것임.
+        document.write('a 값은 : ' + a + '<br/>');
+
+        a += 1;
+        document.write('a 값은 : ' + a + '<br/>');
+
+        let str = 'Hello';
+        str = str + ' my';
+        str = str + ' friend~';
+        document.write('str 값은 : ' + str + '<br/>');
+
+        str += ' everyone';
+        document.write('str 값은 : ' + str + '<br/>');
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

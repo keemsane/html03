@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery w. 마우스 이벤트</title>
+    <style>
+        div.box, h2 {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">div0</div>
+        <div class="box">div1</div>
+        <div class="box">div2</div>
+        <h2>head0</h2>
+        <h2>head1</h2>
+        <h2>head2</h2>
+    </div>
+
+    <script src="jquery-3.6.0.js"></script>
+    <script>
+        // 이벤트
+        $('div.box').click(function (event) {
+            // 클릭한 div 요소에 '★'문자를 뒤에 추가하기
+            
+            // 순수 자바스크립트 방식
+            // let divBox = event.target; // 이벤트가 발생된 개체(이벤트 소스) 참조 정보
+            // divBox.innerHTML += '★'; // divBox.innerHTML = divBox.innerHTML + '★'
+
+            //jQuery에서는 이벤트 소스가 this 키워드로 해결가능
+            // this = event.target;
+            $(this).append('★'); // 기존 내용 뒤에 추가할 때는 append
+            $(this).prepend('★'); // 기존 내용 앞에 추가할 때는 prepend
+            $(this).html('★'); // 기존 내용 수정
+        });
+
+        $('h2').mouseover(function () {
+            $(this).append('♡');
+        });
+
+    </script>
+</body>
+</html>

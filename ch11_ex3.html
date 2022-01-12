@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>timeout 연습3</title>
+</head>
+<body>
+    <div class="clock"></div>
+    <input type="button" value="버튼">
+
+    <script>
+        // let num = 0;
+        
+        // divClock.innerHTML = num;
+
+        //일정 밀리초 간격마다 동작을 반복적으로 수행함
+        
+        let flag = setInterval(function () {
+            let today = new Date();
+            let strTime = today.toLocaleTimeString();
+            let divClock = document.querySelector('div.clock');
+            divClock.innerHTML = strTime;
+           
+        } , 1000);
+
+        console.log('flag : ' + flag);
+
+        let btn = document.querySelector('input[type="button"]');
+        btn.addEventListener('click', function () {
+            clearInterval(flag); // 해당 인터벌 작업 중지
+        });
+    </script>
+</body>
+</html>

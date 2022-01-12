@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        table, th, td {
+            width: 600px;
+            border-collapse: collapse;
+            border: 1px solid blue;
+        }
+        td {
+            text-align: center;
+        }
+    </style>
+    <script>
+        // 이중 for문으로 구구단을 테이블 태그에 넣어보기
+        // 2*1=2 2*2=4 2*3=6 ... 2*9=18
+        // 3*1=3 3*2=6 3*3=9 ... 3*9=27
+        // ...
+        // 9*1=9 9*2=18 9*3=27 ... 9*9=81
+        // 이런 모양으로 넣어보기
+        
+        // document.write('<table border="1">');
+
+        // for (let i = 1; i <= 9; i++) { // 행 (곱하는 수)
+        //     document.write('<tr>');
+        //     for (let j = 2; j <= 9; j++) { // 열(단수)
+        //         document.write('<td>');
+        //         document.write(j + 'X' + i + ' = ' + i*j + '&nbsp' );
+        //         document.write('</td>');
+        //     }
+        //     document.write('</tr>');
+        // }
+        
+        // document.write('</table>');
+        // document.write('<p>================================</p>');
+
+    </script>
+
+</head>
+
+<body>
+    <div class="container">
+        <h2>구구단</h2>
+        <hr>
+        <table id="tbl">
+            <thead>
+
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+    <script>
+        // 열 제목 만들기
+        let str = '';
+        str += '<tr>';
+        for (let i = 2; i <= 9; i++) {
+            str += '<th>' + i + '단</th>';
+        }
+        str += '</tr>';
+
+        console.log(str);
+        
+        // let str = `
+        // <tr>
+        //         <td>
+
+        //         </td>
+        // </tr>
+        // `
+
+        // 만든 열제목을 thead 위치에 삽입하기
+        let thead = document.querySelector('#tbl > thead');console.log(thead);
+        
+        thead.innerHTML = str;
+
+        // 데이터 만들기
+        
+        str = '';
+        for (let i = 1; i <= 9; i++) { // 행 (곱하는 수)
+            str += '<tr>';
+
+            for (let j = 2; j <= 9; j++) { // 열(단수)
+                str += '<td>';
+                str += j + 'X' + i + ' = ' + (i*j);
+                str += '</td>';
+            }
+            str += '</tr>';
+        }
+
+        let tbody = document.querySelector('#tbl > tbody');console.log(tbody);        
+        tbody.innerHTML = str;
+        console.log(str)
+    </script>
+</body>
+</html>

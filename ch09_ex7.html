@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <script>
+        // 1~100까지 합 구하기
+        // 1+2+3+4+5+...+98+99+100
+
+        // for문 방식
+        let sum = 0; // sum이라는 변수를 주고 초기값으로 0을 넣어줌.
+
+        for (let i=1; i<101; i++) {
+            // let sum = 0; 
+            // 이처럼 코드블럭 안에 합 변수를 선언하면 반복문이 시작되고 선언되기 때문에 제대로 합이 연산되지 않는다.
+            sum += i; // sum = sum + i;
+            // document.write('i 값은 ' + i );
+            // document.write(', sum 값은 ' + sum + '<br>');
+        }
+        document.write('1부터 100까지의 누적 합은 ' + sum + '입니다.<br>')
+
+        document.write('<p>======================</p>');
+
+        // while 문 방식
+        sum = 0;
+        let x = 1; //초기식
+        while (true) { //조건식
+            if (x > 100) { // 101이 될 때
+                break; // 자신을 감싸는 가장 가까운 반복문 코드블럭을 벗어남. 즉 if 문이 아니라 while문을 벗어나게 됨.
+            }
+                sum +=x; //반복 실행할 문장
+                x++; //증감식
+        }
+        document.write('1~100까지의 누적합은 ' + sum + '<br/>');
+
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>

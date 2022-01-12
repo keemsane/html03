@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        // do-while문
+
+        // 일반적인 while문은 while 다음에 (조건식)이 오고 그 다음에 {코드 블럭}이 온다.
+        
+        /* 
+        while () {
+
+        }
+        */
+
+        // do-while문은 do 다음에 {코드 블럭}이 오고 실행문을 쓴 다음 while 문이 나온다.
+        // 따라서 최초 한번은 조건과 관계없이 실행이 보장됨.
+
+        let x = 1;
+
+        do {
+            document.write('x = ' + x + '<br/>');
+            x++;
+        } while (x <= 6);
+
+        document.write('<p>======================</p>');
+
+        // break문 : 자신을 감싸는 가장 가까운 switch문, 반복문을 빠져나옴.
+        // continue문 : 자신을 감싸는 가장 가까운 반복문을 다음 반복으로 건너뜀.
+
+        for (let i = 1; i <= 10; i++) {
+            if (i == 3) {
+                break;
+            }
+            document.write(i + '<br/>');
+        }
+        // break 문은 if문 에서 i가 3인 경우에 참이기 때문에 for 문을 빠져나와 더이상 반복이 진행 되지 않음
+        document.write('<p>======================</p>');
+
+        for (i = 1; i <= 10; i++) {
+            if (i == 3) {
+                continue;
+            }
+            document.write(i + '<br/>');
+        }
+        // continue문은 if문에서 i가 3인 경우에 참이기 때문에 3은 건너뛰고 코드 블럭 끝(})으로 가서 다음 반복을 계속 진행한다.
+
+        document.write('<p>======================</p>');
+
+        let j = 1;
+        while (j <= 10) {
+            
+            j++;
+            
+            if (j == 3) {
+                continue;
+            }
+            
+            document.write(j + '<br/>');
+        }
+
+
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

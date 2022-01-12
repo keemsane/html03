@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <script>
+        let num = 5;
+        num = 27;
+        document.write('num = ' + num + '<br/>');
+
+        document.write
+        ('===========================<br/>');
+
+        // 배열(Array)
+        // 배열 선언. 리터럴 표기법
+        let numArr = [10, 20, 30, 40, 50];
+
+        document.write('numArr = ' + numArr + '<br/>');
+
+        
+        document.write('numArr[0] = ' + numArr[0] + '<br>');
+        document.write('numArr[1] = ' + numArr[1] + '<br>');
+        document.write('numArr[2] = ' + numArr[2] + '<br>');
+        document.write('numArr[3] = ' + numArr[3] + '<br>');
+        document.write('numArr[4] = ' + numArr[4] + '<br>');
+
+        document.write('=======================<br/>');
+
+        document.write('배열 크기 : ' + numArr.length +'</br>');
+
+        document.write('===============================================<br/>');
+        for (let i = 0; i < 5; i++) {
+            document.write('numArr[' + i + '] = ' + numArr[i] + '<br/>');
+        }
+
+        document.write('================================</br>');
+        // printArr() 는 배열만 받아서 순서대로 출력만 함.
+        function printArr(arr) {
+            // length는 5이기 때문에 i <= arr.length 라고 하면 java script는 출력하지만 다른 언어에서는 심각한 오류가 발생할 수 있음.
+            for (let i = 0; i < arr.length; i++) {
+                document.write(arr[i] + ' ');
+            }
+            document.write('<br/>');
+        }
+
+        
+        let cities = ['서울', '부산', '인천'];
+
+        printArr(cities);
+
+        document.write('=======================================</br>');
+
+        // java의 포이치(for-each)문과 유사하게 선언.
+        // 배열크기를 안전하게 선언하기.
+        // cities의 첫 번째 배열부터 city에 순서대로 들어감
+        // 역순은 안됨.
+        // 인덱스 번호를 쓰지 않고 순서대로 출력할 때 사용함!
+        // 요즘 많이 쓰는 최신 문법!
+        for (let city of cities) {
+            document.write(city + ' ');
+        }
+        document.write('<br/>');
+
+        document.write('=========================<br/>')
+
+        document.write('cities의 배열 크기 : ' + cities.length + '<br/>');
+
+        cities[cities.length] = 'Mokpo';
+        cities[4] = 'Sejong';
+        document.write('cities의 배열 크기 : ' + cities.length + '<br/>');
+
+        // push 함수를 통해 length를 늘리면서 배열에 변수를 추가할 수 있다.
+        cities.push('대전')
+        document.write('cities의 배열 크기 : ' + cities.length + '<br/>');
+        document.write(cities)
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

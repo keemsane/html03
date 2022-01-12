@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery w. 클릭이벤트</title>
+    <style>
+        h1 {
+            color: black;
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>제목1</h1>
+        <h1 id="aa">제목2</h1>
+        <h1 class="bb">제목3</h1>
+        <hr>
+        <p>본문 내용</p>
+        <input type="button" value="버튼" id="btn">
+    </div>
+
+    <script src="jquery-3.6.0.js"></script>
+    <script>
+        /* 
+        일반 javascript로 하기
+        let btn = document.querySelector('#btn');
+        btn.addEventListener('click', function (event) {
+            // h1요소의 글자색을 빨간색으로 변경하기
+            let h1List = document.querySelectorAll('h1');
+            for (let i = 0; i < h1List.length; i++) {
+                let h1 = h1List.item(i);
+                h1.style.color = 'red';
+                h1.style.backgroundColor = 'lightyellow';
+            } //for
+        });
+        */
+        // jQuery로 해보기
+        
+        // 일반 javascript에서는 불러올 때 기본 객체의 상태를 그대로 가져오지만 
+        // jQuery에서는 기본 객체에 jQuery 객체로 감싸서 가져온다.
+        
+        // 선택자.메소드().메소드()....; <- 메소드 체이닝 기법, 연속으로 메소드 설정이 가능.
+        
+        $('#btn').on('click', function (event) {
+            // 전체 선택자. 전체 글자색을 주황색으로 변경
+            $('*').css('color','orange');
+
+            //인자값이 하나만 있으면 ('color')만 있다면 getter (읽기),
+            // 인자값이 두 개면 ('color', 'orange') setter(쓰기)가 된다.
+
+            // 태그(타입)선택자. h1요소의 글자색을 빨간색으로 변경하기
+            
+            // $('h1')
+            // .css('color', 'blue')
+            // .css('background-color', 'lightyellow');
+
+            // .css 가 forEach 함수처럼 동작함.
+
+            $('h1').css({
+                color: 'red',
+                backgroundColor: 'lightyellow'
+            });
+
+            // css를 한번에 넣고 싶을 때는 css 속성 값을 camelcase로 써줘야한다!
+
+            // 아이디 선택자. #aa 글자색 blue
+            $('#aa').css('color', 'blue');
+
+            let color = $('#aa').css('color'); // 현재 글자색 가져오기
+            console.log(color);
+
+
+            // 클래스 선택자. .bb 글자색 green
+            $('.bb').css('color', 'green');
+        });
+        
+    </script>
+    <script>
+        let x="100"+10;
+        document.write(x);
+    </script>
+</body>
+</html>
